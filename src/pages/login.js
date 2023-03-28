@@ -74,6 +74,12 @@ export default function LoginPage() {
               <button class="bg-black text-white font-normal py-2 px-12 rounded-md text-sm border">
                 Login
               </button>
+              <p className="pt-8 pb-2">Want to Create a Space?</p>
+              <Link href="/">
+                <button class="bg-black text-white font-normal py-2 px-12 rounded-md text-sm border">
+                  Create
+                </button>
+              </Link>
             </div>
           </div>
         </div>
