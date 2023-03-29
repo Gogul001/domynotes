@@ -1,12 +1,13 @@
-export default function SmallNotes() {
+export default function SmallNotes(props) {
   return (
     <>
-      <div className="text-4xl">
-        <h1>heading</h1>
-      </div>
-      <div>
-        <p>Description</p>
-      </div>
+      {props.data.data.map((notename) => (
+        <div className="text-2xl">
+          <h1>
+            <a href="">{notename.notename}</a>
+          </h1>
+        </div>
+      ))}
       <br className="h-1 bg-black" />
     </>
   );

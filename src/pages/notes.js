@@ -5,13 +5,17 @@ import LargeNotes from "./notes/largenotes";
 export const getStaticProps = async () => {
   const res = await fetch("http://127.0.0.1:8000/users/2/projectslist/");
   const data = await res.json();
+  const response = await fetch(
+    "http://127.0.0.1:8000/users/2/projects/1/noteslist/"
+  );
+  const notesdata = await response.json();
 
   return {
-    props: { projectlist: data },
+    props: { projectlist: data, notes: notesdata },
   };
 };
 
-export default function NotesPage({ projectlist }) {
+export default function NotesPage({ projectlist, notes }) {
   return (
     <>
       <div className="flex h-screen">
@@ -19,10 +23,10 @@ export default function NotesPage({ projectlist }) {
           <Project data={projectlist} />
         </div>
         <div className="w-3/12 bg-orange-900">
-          <NotesList />
+          <NotesList data={notes} />
         </div>
         <div className="w-7/12 bg-yellow-500">
-          <LargeNotes />
+          <LargeNotes data={notes} />
         </div>
       </div>
     </>
